@@ -11,5 +11,18 @@ const getTableData = async (table) => {
     throw err;
   }
 };
-getTableData("notes");
-getTableData("categories");
+//getTableData();
+//getTableData();
+
+const handleSignUp = async (email, password) => {
+  try {
+    const { data, error } = await supabaseClient.auth.signUp({
+      email: `${email}`,
+      password: `${password}`,
+    });
+    error ? console.error(error) : console.log(data);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+//handleSignUp();
